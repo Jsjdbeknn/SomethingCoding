@@ -1,0 +1,202 @@
+:root {
+    --primary-red: #ff4d6d;
+    --light-pink: #ffb3c1;
+    --dark-bg: #1a0005;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: var(--dark-bg);
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+/* Background Polish */
+.vignette {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, transparent 30%, rgba(0,0,0,0.7) 100%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.floating-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.blob {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 77, 109, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(50px);
+    animation: move 20s infinite alternate;
+}
+
+    .blob:nth-child(2) {
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle, rgba(201, 24, 74, 0.2) 0%, transparent 70%);
+        animation-delay: -5s;
+    }
+
+@keyframes move {
+    from {
+        transform: translate(-10%, -10%);
+    }
+
+    to {
+        transform: translate(10%, 10%);
+    }
+}
+
+/* UI Elements */
+#ui-layer {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    text-align: center;
+}
+
+.meter-label {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.progress-bar {
+    width: 280px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 77, 109, 0.3);
+}
+
+#love-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--primary-red), #ff8fa3);
+    transition: width 0.4s cubic-bezier(0.47, 1.64, 0.41, 0.8);
+}
+
+/* Glassmorphism Screens */
+.screen {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.4);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(1.1);
+}
+
+.active {
+    opacity: 1;
+    pointer-events: all;
+    transform: scale(1);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 3rem;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+}
+
+/* Typography & Buttons */
+.title-glow {
+    font-size: 3rem;
+    text-shadow: 0 0 20px var(--primary-red);
+    margin-bottom: 10px;
+}
+
+.cursive-text {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4.5rem;
+    color: var(--primary-red);
+    margin: 0;
+}
+
+.btn {
+    padding: 14px 32px;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px;
+}
+
+.primary-btn {
+    background: var(--primary-red);
+    color: white;
+}
+
+.yes-btn {
+    background: #2ecc71;
+    color: white;
+}
+
+.no-btn {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.pulse {
+    animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 77, 109, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(255, 77, 109, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 77, 109, 0);
+    }
+}
+
+.bounce-text {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}

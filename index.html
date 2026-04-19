@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Girlfriend?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <div class="vignette"></div>
+        <div class="floating-bg">
+            <div class="blob"></div>
+            <div class="blob"></div>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+
+        <div id="ui-layer">
+            <div id="score-board">
+                <span class="meter-label">Love Progress</span>
+                <div class="progress-bar">
+                    <div id="love-fill"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="start-screen" class="screen active">
+            <div class="glass-card">
+                <h1 class="title-glow">Catch the Love!</h1>
+                <p>Fill the meter to reveal a secret...</p>
+                <button id="start-btn" class="btn primary-btn pulse">Start Game</button>
+            </div>
+        </div>
+
+        <div id="proposal-screen" class="screen hidden">
+            <div class="glass-card proposal-box">
+                <h1 class="cursive-text">Will You Be My Girlfriend?</h1>
+                <p class="sub-text">You're sooo cute naman po! :></p>
+                <div class="btn-group">
+                    <button id="yes-btn" class="btn yes-btn">YES! ❤️</button>
+                    <button id="no-btn" class="btn no-btn">No</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="celebration-screen" class="screen hidden">
+            <div class="glass-card">
+                <h1 class="bounce-text">YEYY THANK YOU PO!! 💍</h1>
+                <p>I love you forever!</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
